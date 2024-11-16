@@ -1,0 +1,267 @@
+*{
+     margin: 0;
+     padding: 0;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.theme-bright{
+     background-color: white;
+     color: orangered
+}
+
+.theme-dark{
+     background-color: black;
+     color: orange;
+}
+
+.app-logo{
+     margin-left: 1rem;
+}
+
+.logo{
+     font-size: 2.5rem;
+    
+}
+
+header{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+     padding: 1rem;
+     border-bottom: 2px solid brown;
+}
+
+main{
+     margin-top: 0.5rem;
+     padding: 0.5rem;
+}
+
+.toggle-btn{
+     padding: 1rem;
+     border-radius: 50%;
+     cursor: pointer;
+}
+
+.all-songs{
+     height: 85vh;
+     border: 1px solid brown;
+
+}
+.music-player{
+     height: 85vh;
+     border: 1px solid brown;
+}
+.playlist{
+     height: 85vh;
+     border: 1px solid brown;
+}
+
+.music-section{
+     display: grid;
+     grid-template-columns: 0.5fr 1fr 0.5fr ;
+     gap: 0.5rem;
+
+}
+.filter-music-drpdwn{
+     text-align: center;
+     padding: 1rem;
+}
+
+select{
+     padding: 0.2rem;
+     border-radius: 7px;
+}
+
+.filtered-songs{
+     width: 100%;
+     height: 90%;
+     overflow-y: auto;
+     overflow-x: hidden;
+}
+.song{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between image and text */
+    padding: 1rem;
+    margin-top: 0.2rem;
+    transition: transform 0.3s ease;
+    /* border-bottom: 1px solid brown; */
+}
+
+.song:hover{
+     background-color: orange;
+     color: azure;
+     transform: scale(1.05);
+     cursor: pointer;
+}
+
+.music-img {
+    width: 3em;
+    height: 3em;
+}
+
+.music-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.music-name {
+    font-size: 1rem; /* Adjust as needed */
+    font-weight: bold; /* Optional styling */
+}
+
+.music-album{
+     font-size: small;
+     color: grey;
+}
+
+.music-player{
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+}
+
+.music-player-details{
+     height: 70%;
+     /* width: 100%; */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     /* background-color: yellowgreen; */
+}
+.music-player-name{
+     font-size: 2rem; /* Adjust as needed */
+    font-weight: bold; /* Optional styling */
+}
+
+.music-player-album{
+     font-size: medium;
+     color: gray;
+     font-style: italic;
+}
+.music-controls{
+     /* background-color: green; */
+     height: 30%;
+}
+.music-player-image{
+     width: 21rem;
+     height: auto;
+     margin: 0 auto;
+     /* background-color: black;  */
+}
+
+.music-player-image img{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     margin: 0 auto;
+     border-radius: 2%;
+     border: 1px solid brown;
+     box-shadow: 0 4px 8px 0 rgba(19, 19, 19, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.music-controls{
+     /* width: 80%; */
+     /* margin: 0 auto; */
+     text-align: center;
+}
+
+#audio-player{
+     margin-top: 1rem;
+     width: 80%;
+}
+
+.music-player-button{
+     margin-top: 0.5rem;
+}
+
+#music-player-playlist-btn{
+     margin-top: 1rem;
+}
+
+.btn{
+     padding: 0.5rem 1.8rem 0.5rem 1.8rem;
+     margin: 0 1rem;
+     border-radius: 7%;
+     box-shadow: 0 4px 8px 0 rgba(19, 19, 19, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     cursor: pointer;
+}
+
+
+.playlist-conrtol{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     /* background-color: red; */
+     height: 10%;
+}
+
+
+.playlist-conrtol input{
+     padding:0.5rem 0.2rem 0.5rem 0.2rem;
+     width: 60%;
+     margin: 0 1rem;
+}
+
+.btn-playlist{
+     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+     border-radius: 7%;
+     cursor: pointer;
+}
+
+.all-playlist{
+     /* background-color: yellow; */
+     height: 29%;
+}
+
+.playlist-songs{
+     height: 60%;
+}
+
+.playlist-tag{
+     font-size: 1.2rem; /* Adjust as needed */
+     font-weight: bold; /* Optional styling */
+     text-align: center;
+}
+
+.playlist-collection{
+     height: 80%;
+     overflow-y: auto;
+     border-top: 2px solid brown;
+     overflow-x: hidden;
+}
+
+.each-playlist{
+     display: flex;
+     justify-content: space-evenly;
+     /* gap: 1rem; */
+     align-items: center;
+     word-wrap: break-word;
+     padding: 0.5rem;
+     /* border-bottom: 1px solid gold; */
+     transition: transform 0.3s ease;
+} 
+
+.each-playlist:hover{
+     background-color: orange;
+     color: azure;
+     transform: scale(1.05);
+}
+
+.each-playlist p{
+     max-width: 75%;
+}
+
+.playlist-song-collections{
+     width: 100%;
+     height: 56%;
+}
+
+.playlist-songs{
+     width: 100%;
+     height: 100%;
+     overflow-y: auto;
+     overflow-x: hidden;
+}
