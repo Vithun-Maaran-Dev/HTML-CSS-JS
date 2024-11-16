@@ -59,7 +59,7 @@ let musicsList = [
           , name: `Railing Oligal`
           , artist: `Govind Vasantha`
           , album: `Blue Star`
-          , genreId: 2
+          , genreId: 5
           , imgSRC: `https://masstamilan.cool/siteuploads/thumb/sft1/47_resize2x_250x250.webp`
           , musicSRC: `https://masstamilan.cool/files/download/id/47`
      },
@@ -86,7 +86,7 @@ let musicsList = [
           , name: `En Roja Neeye`
           , artist: `Hesham Abdul Wahab`
           , album: `Kushi`
-          , genreId: 2
+          , genreId: 5
           , imgSRC: `https://masstamilan.cool/siteuploads/thumb/sft1/19_resize2x_250x250.webp`
           , musicSRC: `https://masstamilan.cool/files/download/id/19`
      },
@@ -99,6 +99,7 @@ const listsGenres = [
      { id: 2, genreName: `Pop` },
      { id: 3, genreName: `Rock` },
      { id: 4, genreName: `Hip Hop` },
+     { id: 5, genreName: `Melodies` },
 ];
 
 let yourPlaylists = [
