@@ -4,16 +4,23 @@ import getStockChart from "./StockChart.js";
 
 export default async function getStockDatas() {
 
-     const getStockDatasAPI = await fetch(`https://stocksapi-uhe1.onrender.com/api/stocks/getstockstatsdata`);
-     const stockDatas = await getStockDatasAPI.json();
+     try {
+          const getStockDatasAPI = await fetch(`https://stocksapi-uhe1.onrender.com/api/stocks/getstockstatsdata`);
+          const stockDatas = await getStockDatasAPI.json();
 
-     for (let stockData in stockDatas) {
-          if (stockData != "message") {
-               stockDatas[stockData].map((datas) => {
-                    buildStockView(datas)
-               });
+          for (let stockData in stockDatas) {
+               if (stockData != "message") {
+                    stockDatas[stockData].map((datas) => {
+                         buildStockView(datas)
+                    });
+               }
           }
      }
+     catch {
+          alert(`Error occur while fetching data.`);
+     }
+
+
 }
 
 function buildStockView(datas) {

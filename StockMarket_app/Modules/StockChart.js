@@ -2,16 +2,23 @@ import { chartView } from "../chart/lineChart.js";
 
 export default async function getStockChart() {
 
-     const getStockChartAPI = await fetch(`https://stocksapi-uhe1.onrender.com/api/stocks/getstocksdata`);
-     const getStockChartDatas = await getStockChartAPI.json();
+     try {
+          const getStockChartAPI = await fetch(`https://stocksapi-uhe1.onrender.com/api/stocks/getstocksdata`);
+          const getStockChartDatas = await getStockChartAPI.json();
 
-     for (let getStockChartData in getStockChartDatas) {
-          if (getStockChartData != "message") {
-               getStockChartDatas[getStockChartData].map((stockCharts) => {
-                    buildStockChart(stockCharts)
-               });
+          for (let getStockChartData in getStockChartDatas) {
+               if (getStockChartData != "message") {
+                    getStockChartDatas[getStockChartData].map((stockCharts) => {
+                         buildStockChart(stockCharts)
+                    });
+               }
           }
      }
+     catch {
+          alert(`Error occur while fetching data.`);
+     }
+
+
 
 }
 

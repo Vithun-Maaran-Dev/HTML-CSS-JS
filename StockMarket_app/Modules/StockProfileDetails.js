@@ -1,15 +1,21 @@
 export default async function getStockprofileDetail() {
-     const getStockprofileDetailAPI = await fetch(`https://stocksapi-uhe1.onrender.com/api/stocks/getstocksprofiledata`);
-     const getStockprofileDetails = await getStockprofileDetailAPI.json();
+     try {
+          const getStockprofileDetailAPI = await fetch(`https://stocksapi-uhe1.onrender.com/api/stocks/getstocksprofiledata`);
+          const getStockprofileDetails = await getStockprofileDetailAPI.json();
 
-     for (let getStockprofileDetail in getStockprofileDetails) {
+          for (let getStockprofileDetail in getStockprofileDetails) {
 
-          if (getStockprofileDetail != "message") {
-               getStockprofileDetails[getStockprofileDetail].map((stockProfiles) => {
-                    buildStockProfileView(stockProfiles)
-               });
+               if (getStockprofileDetail != "message") {
+                    getStockprofileDetails[getStockprofileDetail].map((stockProfiles) => {
+                         buildStockProfileView(stockProfiles)
+                    });
+               }
           }
      }
+     catch {
+          alert(`Error occur while fetching data.`);
+     }
+
 }
 
 function buildStockProfileView(stockProfiles) {
