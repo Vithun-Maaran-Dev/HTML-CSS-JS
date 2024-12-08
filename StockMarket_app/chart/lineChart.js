@@ -1,37 +1,60 @@
+export async function chartView(stockValueAndTime) {
+     const { value, timeStamp } = stockValueAndTime || {};
 
-const ctx = document.getElementById('myLineChart').getContext('2d');
-const myLineChart = new Chart(ctx, {
-     type: 'line', // Chart type
-     data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June'], // X-axis labels
-          datasets: [{
-               label: 'Sales Data', // Legend label
-               data: [10, 20, 30, 40, 50, 60], // Data points
-               borderColor: 'rgba(75, 192, 192, 1)', // Line color
-               backgroundColor: 'rgba(75, 192, 192, 0.2)', // Area fill color
-               borderWidth: 2, // Line width
-               tension: 0.3 // Line smoothness
-          }]
-     },
-     options: {
-          responsive: true,
-          plugins: {
-               legend: {
-                    display: true,
-                    position: 'top'
+     if (!value || !timeStamp) {
+          console.warn("Invalid data for chart rendering");
+          return;
+     }
+
+     const chartData = {
+          labels: await convertTimestamps(timeStamp), // X-axis labels
+          datasets: [
+               {
+                    label: 'Stock Price',
+                    data: value,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 1,
+                    tension: 0.4
                },
-               tooltip: {
-                    enabled: true
-               }
-          },
-          scales: {
-               x: {
-                    beginAtZero: true // Start X-axis at zero
+          ]
+     };
+
+     if (window.stockChartInstance) {
+          window.stockChartInstance.destroy();
+     }
+
+     const ctx = document.getElementById(`stockChart`).getContext('2d');
+     window.stockChartInstance = new Chart(ctx, {
+          type: 'line',
+          data: chartData,
+          options: {
+               responsive: true,
+               plugins: {
+                    legend: { position: 'top' },
+                    tooltip: {
+                         enabled: true,
+                         callbacks: {
+                              label: (context) => `Price: $${context.raw.toFixed(2)}`
+                         }
+                    }
                },
-               y: {
-                    beginAtZero: true // Start Y-axis at zero
+               scales: {
+                    x: {
+                         beginAtZero: false,
+                         grid: { display: false }
+                    },
+                    y: {
+                         beginAtZero: true,
+                         ticks: {
+                              callback: (value) => `$${value.toFixed(2)}`
+                         }
+                    }
                }
           }
-     }
-});
+     });
+}
 
+function convertTimestamps(timestamps) {
+     return timestamps.map(ts => new Date(ts * 1000).toLocaleDateString());
+}
