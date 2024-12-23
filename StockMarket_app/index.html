@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <Link  href="./index.css" rel="stylesheet" type="text/css"/>
+     <link rel = "icon" href ="./icon/increase.ico" type = "image/x-icon">
+
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,0,0" />
+     
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <title>Stock Market Analysis</title>
+     
+</head>
+<body>
+     <div class="grid-container">
+         
+          <header class="header">
+               <div class="header-nav">
+                    <p class="heading-txt" >Stock Market Analysis</p>
+                    <button class="logoff-btn" title="Logoff">
+                         <span class="material-symbols-outlined icon">arrow_forward_ios</span>                       
+                    </button>
+               </div>
+          </header>
+         
+          <nav class="sidebar">
+               <div class="sidebar-flex">
+                    <div class="nav" id="nav">
+                         
+                    </div>
+               </div>
+          </nav>
+          
+          <main class="workspace">
+               <div class="search-bar">
+                   <select name="period" id="period-drpdwn" title="Period">
+                         <option value="1mo" selected>1 Month</option>
+                         <option value="3mo">3 Month</option>
+                         <option value="1y"> 1 year</option>
+                         <option value="5y"> 5 years</option>
+                   </select>
+                   <input type="hidden" value="" id="seletedStock">
+               </div>
+
+               <section id="Dashboard-view" style="padding: 20px;" > 
+                    <div class="dash-view">
+                          <canvas id="stockChart" width="100%" height="40%"></canvas>
+                    </div>
+               </section>
+
+               <section id="stock-detail">
+                   
+               </section>
+          </main>
+
+          <footer class="footer"> 
+               <p>&copy; Dashboard done by vithunmaaran</p>
+          </footer>
+     </div>
+
+     <script type="module" src="./index.js"></script>
+</body>
+</html>
