@@ -62,7 +62,7 @@ main{
      grid-template-columns: 0.5fr 1fr 0.5fr ;
      gap: 0.5rem;
 
-}
+} 
 .filter-music-drpdwn{
      text-align: center;
      padding: 1rem;
